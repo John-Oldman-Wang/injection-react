@@ -1,0 +1,52 @@
+{
+  "name": "injection-react",
+  "version": "0.0.1",
+  "description": "inject with react. 在 react 中使用依赖注入帮助项目代码接耦合，快速迭代，快速服用。",
+  "main": "./bundles/index.js",
+  "module": "./es/index.js",
+  "jsnext:main": "./es/index.js",
+  "types": "./es/index.d.ts",
+  "peerDependencies": {
+    "reflect-metadata": ">= 0.1.13",
+    "injection-js": ">= 2.3.2",
+    "react": ">= 15.8.0",
+    "react-dom": ">= 15.8.0"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@types/react": "^16.9.55",
+    "@types/react-dom": "^16.9.9",
+    "husky": "^4.3.0",
+    "prettier": "^2.1.2",
+    "prettier-tslint": "^0.4.2",
+    "pretty-quick": "^3.1.0",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "typescript": "^4.0.5",
+    "injection-js": "^2.3.2",
+    "reflect-metadata": "^0.1.13"
+  },
+  "scripts": {
+    "build": "tsc",
+    "build:es": "tsc -p ./tsconfig.es.json",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "format": "prettier-tslint fix '**/*.(ts|tsx)'",
+    "prettier": "pretty-quick --staged"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run prettier"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nokisnojok/injection-react.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nokisnojok/injection-react/issues"
+  },
+  "homepage": "https://github.com/nokisnojok/injection-react#readme"
+}
