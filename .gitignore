@@ -1,0 +1,11 @@
+node_modules
+yarn.lock
+dist
+lib
+bundles
+es
+.next
+.cache
+.DS_Store
+.vscode/
+test

@@ -1,0 +1,23 @@
+{
+    "compilerOptions": {
+      "module": "es6",
+      "target": "es2017",
+      "noImplicitAny": true,
+      "suppressImplicitAnyIndexErrors": true,
+      "removeComments": true,
+      "preserveConstEnums": true,
+      "sourceMap": true,
+      "outDir": "./es",
+      "declaration": true,
+      "emitDecoratorMetadata": true,
+      "experimentalDecorators": true,
+      "esModuleInterop": true,
+      "jsx": "react",
+      "allowJs": true,
+      "moduleResolution": "Node",
+      "types": []
+    },
+    "include": ["src/**/*", "*.d.ts", "*.ts"],
+    "exclude": ["node_modules"]
+  }
+  
