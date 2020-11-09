@@ -7,11 +7,13 @@ interface StateLessComponentProps {
     injector?: Injector;
 }
 
-export type WithInjectorStateLessFunctionArguments<T> = [props: T, injector?: Injector];
+export interface WithInjectorStateLessFunction<T> {
+    (props: T, injector?: Injector): JSX.Element | any;
+}
 
-export const stateLessComponentWithInjector = <T>(
-    stateLessFunction: (...args: WithInjectorStateLessFunctionArguments<T>) => JSX.Element
-) => {
+export type WithInjectorStateLessFunctionArguments<T> = Parameters<WithInjectorStateLessFunction<T>>;
+
+export const stateLessComponentWithInjector = <T>(stateLessFunction: WithInjectorStateLessFunction<T>) => {
     function StateLessComponent({ props, injector }: StateLessComponentProps) {
         return stateLessFunction(props, injector);
     }
