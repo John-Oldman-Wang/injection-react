@@ -1,7 +1,7 @@
 {
   "name": "injection-react",
-  "version": "0.0.3",
-  "description": "inject with react. 在 react 中使用依赖注入帮助项目代码接耦合，快速迭代，快速服用。",
+  "version": "0.0.4",
+  "description": "inject with react. 在 react 中使用依赖注入帮助项目代码接耦合，快速迭代，快速复用。",
   "main": "./bundles/index.js",
   "module": "./es/index.js",
   "jsnext:main": "./es/index.js",
