@@ -54,7 +54,26 @@ class App extends Component {
 }
 
 render([{ provide: 'Service', useClass: Service }], <App />, document.body);
+```
+or
+```tsx
+import 'reflect-metadata';
+import React from 'react';
+import { Injectable, Injector } from 'injection-js';
+import { render, Component, stateLessComponentWithInjector } from 'injection-react';
 
+@Injectable()
+class Service {
+  getHello(): string {
+    return 'Hello World!';
+  }
+}
+
+const App = stateLessComponentWithInjector((_, injector: Injector) => (
+  <div>{injector.get('Service').getHello()}</div>
+));
+
+render([{ provide: 'Service', useClass: Service }], <App />, document.body);
 ```
 
 # API
