@@ -42,7 +42,15 @@
     "type": "git",
     "url": "git+https://github.com/nokisnojok/injection-react.git"
   },
-  "keywords": [],
+  "keywords": [
+    "react",
+    "react-dom",
+    "DI",
+    "dependency",
+    "injection",
+    "dependency injection",
+    "injector"
+  ],
   "author": "",
   "license": "ISC",
   "bugs": {
