@@ -1,5 +1,5 @@
 import React, { CElement, Component, ComponentState, DOMAttributes, DOMElement, ReactElement, SFCElement } from 'react';
-import { render, Renderer } from 'react-dom';
+import { render, Renderer, hydrate } from 'react-dom';
 import { Provider as InjectorProvider, ReflectiveInjector } from 'injection-js';
 import { Provider } from './injection_context';
 
@@ -38,6 +38,23 @@ export interface RendererR {
         | void;
 }
 
+export const injectionFactory = (method: RendererR) => (providers: InjectorProvider[], ...args: Parameters<RendererR>) => {
+    const [element, container, callback] = args;
+    const rootInjector = ReflectiveInjector.resolveAndCreate(providers);
+
+    return method(
+        React.createElement(
+            Provider,
+            {
+                value: rootInjector
+            },
+            element
+        ),
+        container,
+        callback
+    );
+};
+
 export function injectionRender(providers: InjectorProvider[], ...args: Parameters<RendererR>): ReturnType<Renderer> {
     const [element, container, callback] = args;
     const rootInjector = ReflectiveInjector.resolveAndCreate(providers);
@@ -54,3 +71,5 @@ export function injectionRender(providers: InjectorProvider[], ...args: Paramete
         callback
     );
 }
+
+export const injectionHydrate = injectionFactory(hydrate);
