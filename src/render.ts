@@ -38,9 +38,17 @@ export interface RendererR {
         | void;
 }
 
-export const injectionFactory = (method: RendererR) => (providers: InjectorProvider[], ...args: Parameters<RendererR>) => {
+export const injectionFactory = (method: RendererR) => (
+    providers: InjectorProvider[] | ReflectiveInjector,
+    ...args: Parameters<RendererR>
+): ReturnType<Renderer> => {
     const [element, container, callback] = args;
-    const rootInjector = ReflectiveInjector.resolveAndCreate(providers);
+    let rootInjector: ReflectiveInjector;
+    if (providers instanceof ReflectiveInjector) {
+        rootInjector = providers;
+    } else {
+        rootInjector = ReflectiveInjector.resolveAndCreate(providers);
+    }
 
     return method(
         React.createElement(
@@ -55,21 +63,6 @@ export const injectionFactory = (method: RendererR) => (providers: InjectorProvi
     );
 };
 
-export function injectionRender(providers: InjectorProvider[], ...args: Parameters<RendererR>): ReturnType<Renderer> {
-    const [element, container, callback] = args;
-    const rootInjector = ReflectiveInjector.resolveAndCreate(providers);
-
-    return render(
-        React.createElement(
-            Provider,
-            {
-                value: rootInjector
-            },
-            element
-        ),
-        container,
-        callback
-    );
-}
+export const injectionRender = injectionFactory(render);
 
 export const injectionHydrate = injectionFactory(hydrate);

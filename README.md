@@ -1,7 +1,7 @@
 # injection-react
 [![Build Status](https://travis-ci.org/mgechev/injection-js.svg?branch=master)](https://travis-ci.org/mgechev/injection-react) ![Downloads](https://img.shields.io/npm/dm/injection-react.svg)
 
-一个可以在react项目中使用的JavaScript和TypeScript依赖注入库。它是Angular依赖注入的一部分，这意味着它具有完整，快速，可靠且经过良好测试的功能。
+一个可以在**React**项目中使用的JavaScript和TypeScript**依赖注入**库。它是Angular依赖注入的一部分，这意味着它具有完整，快速，可靠且经过良好测试的功能。
 
 # 如何不使用Angular获得依赖注入的能力？
 
